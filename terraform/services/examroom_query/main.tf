@@ -6,6 +6,10 @@ terraform {
   }
 }
 
+variable "service_id" {
+  type = string
+}
+
 resource "random_uuid" "lambda_src_hash" {
   keepers = {
     for filename in setunion(
@@ -19,12 +23,6 @@ data "archive_file" "create_zip" {
   type        = "zip"
   source_file = "${path.module}/dist/index.js"
   output_path = "${path.module}/dist/${random_uuid.lambda_src_hash.result}.zip"
-}
-
-resource "tencentcloud_api_gateway_service" "examroom_query" {
-  service_name = "examroom_query"
-  protocol     = "https"
-  net_type     = ["OUTER"]
 }
 
 resource "tencentcloud_scf_function" "examroom_query" {
@@ -45,7 +43,7 @@ resource "tencentcloud_scf_function" "examroom_query" {
         isIntegratedResponse = "FALSE"
       }
       service = {
-        serviceId = tencentcloud_api_gateway_service.examroom_query.id
+        serviceId = var.service_id
       }
       release = {
         environmentName = "test"

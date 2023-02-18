@@ -3,6 +3,7 @@ handler.js
 # terraform
 .terraform*
 *.tfstate*
+*.tfvars
 # Logs
 logs
 *.log
