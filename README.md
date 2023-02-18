@@ -2,7 +2,7 @@
 
 ## On Board
 
-```
+```bash
 npm install -g esbuild
 
 cd terraform
@@ -51,4 +51,12 @@ export const handler = async (event, context) => {
 
 go to `terraform/`
 
-run `terraform apply`
+create `terraform/variables.tfvars`, add host and domain inside
+
+run `terraform apply -var-file=variables.tfvars`
+
+## QA
+
+Error: the domain name is not configured with CNAME to the default domain name, or the resolution is not effective.
+
+> wait for 10 minutes, then try again, cause the domain name resolution takes time
