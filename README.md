@@ -5,6 +5,8 @@
 ```
 npm install -g esbuild
 
+cd terraform
+
 terraform init
 ```
 
@@ -44,3 +46,9 @@ export const handler = async (event, context) => {
   }); 
 };
 ```
+
+## Deploy
+
+go to `terraform/`
+
+run `terraform apply`
