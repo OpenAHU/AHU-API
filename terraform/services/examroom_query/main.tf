@@ -10,13 +10,13 @@ resource "random_uuid" "lambda_src_hash" {
   keepers = {
     for filename in setunion(
       fileset("${path.module}/dist", "index.js"),
-    ):
-        filename => filemd5("${path.module}/dist/${filename}")
+    ) :
+    filename => filemd5("${path.module}/dist/${filename}")
   }
 }
 
 data "archive_file" "create_zip" {
-  type = "zip"
+  type        = "zip"
   source_file = "${path.module}/dist/index.js"
   output_path = "${path.module}/dist/${random_uuid.lambda_src_hash.result}.zip"
 }
