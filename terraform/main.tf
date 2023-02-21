@@ -6,16 +6,6 @@ terraform {
   }
 }
 
-provider "tencentcloud" {}
-
-variable "host" {
-  type = string
-}
-
-variable "domain" {
-  type = string
-}
-
 module "api_gateway" {
   source = "./modules/api_gateway"
 
