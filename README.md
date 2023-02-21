@@ -1,5 +1,21 @@
 # AHU-API
 
+## Above All
+
+Basiclly, it's a playground for IaC, Serverless, Cloud Native, DevOps, CI/CD, etc.
+
+Then, it's the backend infrastructure for OpenAHU's projects
+
+IaC: 
+
+https://spacelift.io/blog/infrastructure-as-code
+
+More: 
+
+- https://spacelift.io/blog
+- https://developer.hashicorp.com/terraform/docs
+- https://terragrunt.gruntwork.io/docs/
+
 ## On Board
 
 ```bash
