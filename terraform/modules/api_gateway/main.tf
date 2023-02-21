@@ -6,14 +6,6 @@ terraform {
   }
 }
 
-variable "host" {
-  type = string
-}
-
-variable "domain" {
-  type = string
-}
-
 resource "tencentcloud_dnspod_domain_instance" "dnspod_domain_instance" {
   domain = var.domain
 }
@@ -45,8 +37,4 @@ resource "tencentcloud_api_gateway_custom_domain" "custom_domain" {
   service_id     = tencentcloud_api_gateway_service.api_gateway_service.id
   default_domain = tencentcloud_api_gateway_service.api_gateway_service.outer_sub_domain
   sub_domain     = join(".", [tencentcloud_dnspod_record.api_dnspod_record.sub_domain, tencentcloud_dnspod_record.api_dnspod_record.domain])
-}
-
-output "service_id" {
-  value = tencentcloud_api_gateway_service.api_gateway_service.id
 }

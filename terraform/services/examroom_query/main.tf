@@ -6,10 +6,6 @@ terraform {
   }
 }
 
-variable "service_id" {
-  type = string
-}
-
 resource "random_uuid" "lambda_src_hash" {
   keepers = {
     for filename in setunion(
@@ -25,20 +21,20 @@ data "archive_file" "create_zip" {
   output_path = "${path.module}/dist/${random_uuid.lambda_src_hash.result}.zip"
 }
 
-resource "tencentcloud_scf_function" "examroom_query" {
+resource "tencentcloud_scf_function" "examroom" {
   runtime  = "Nodejs16.13"
-  name     = "examroom_query"
+  name     = "examroom"
   zip_file = data.archive_file.create_zip.output_path
   handler  = "index.handler"
 
   triggers {
-    name = "examroom_query"
+    name = "examroom"
     type = "apigw"
     trigger_desc = jsonencode({
       api = {
         authRequired = "FALSE"
         requestConfig = {
-          method = "ANY"
+          method = "GET"
         }
         isIntegratedResponse = "FALSE"
       }
@@ -46,7 +42,7 @@ resource "tencentcloud_scf_function" "examroom_query" {
         serviceId = var.service_id
       }
       release = {
-        environmentName = "test"
+        environmentName = "release"
       }
     })
   }
