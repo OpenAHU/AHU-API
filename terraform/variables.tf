@@ -1,9 +1,9 @@
-variable "host" {
+variable "domain" {
   type      = string
   sensitive = true
 }
 
-variable "domain" {
+variable "certificate_id" {
   type      = string
   sensitive = true
 }
