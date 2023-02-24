@@ -4,6 +4,7 @@ handler.js
 .terraform*
 *.tfstate*
 *.tfvars
+backend.tf
 # Logs
 logs
 *.log
