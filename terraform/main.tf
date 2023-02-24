@@ -19,3 +19,10 @@ module "examroom_query" {
 
   service_id = module.api_gateway.service_id
 }
+
+module "weather_query" {
+  depends_on = [module.api_gateway]
+  source     = "./services/weather_query"
+
+  service_id = module.api_gateway.service_id
+}
