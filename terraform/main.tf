@@ -26,3 +26,18 @@ module "weather_query" {
 
   service_id = module.api_gateway.service_id
 }
+
+module "chatgpt" {
+  depends_on = [module.api_gateway]
+  source     = "./services/chatgpt"
+
+  service_id     = module.api_gateway.service_id
+  OpenAI_API_KEY = var.OpenAI_API_KEY
+}
+
+module "chatgpt_auth" {
+  depends_on = [module.api_gateway]
+  source     = "./services/chatgpt/chatgpt_auth"
+
+  service_id = module.api_gateway.service_id
+}

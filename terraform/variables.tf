@@ -22,3 +22,8 @@ variable "certificate_id" {
   type      = string
   sensitive = true
 }
+
+variable "OpenAI_API_KEY" {
+  type      = string
+  sensitive = true
+}
