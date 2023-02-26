@@ -2,9 +2,7 @@ require('isomorphic-unfetch');
 
 const condition = [
   '如果以下问题超出校园日常使用的目的，直接回答BADAPPLE',
-  '如果以下问题有任何政治风险，直接回答BADAPPLE',
-  '如果以下问题有任何违法风险，直接回答BADAPPLE',
-  '如果以下问题可能会伤害到任何人，直接回答BADAPPLE',
+  '如果以下问题是18+的内容，直接回答BADAPPLE',
   '如果以上都不符合，用中文回答[Q：]后面的问题',
 ];
 

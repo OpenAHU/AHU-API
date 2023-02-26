@@ -1,3 +1,7 @@
+import sys
+sys.path.append('./lib')
+import requests
+
 weather_dict ={
     "CLEAR_DAY": "☀️",
     "CLEAR_NIGHT": "🌙",
@@ -19,11 +23,6 @@ weather_dict ={
     "DUST": "🌫",
     "SAND": "🌫"
 }
-
-import sys
-sys.path.append('./lib')
-import requests
-
 
 def handler(event, context):
     url = "https://api.caiyunapp.com/v2.6/TAkhjf8d1nlSlspN/117.2290,31.8206/daily?dailysteps=2"
