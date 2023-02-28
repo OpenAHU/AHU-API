@@ -27,3 +27,8 @@ variable "OpenAI_API_KEY" {
   type      = string
   sensitive = true
 }
+
+variable "authed_xhs" {
+  type      = string
+  sensitive = true
+}
