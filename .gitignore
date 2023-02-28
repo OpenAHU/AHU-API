@@ -5,7 +5,6 @@ handler.js
 *.tfstate*
 *.tfvars
 backend.tf
-chatgpt_auth
 # Logs
 logs
 *.log

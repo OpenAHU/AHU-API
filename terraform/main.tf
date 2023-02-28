@@ -40,4 +40,6 @@ module "chatgpt_auth" {
   source     = "./services/chatgpt/chatgpt_auth"
 
   service_id = module.api_gateway.service_id
+
+  authed_xhs = var.authed_xhs
 }
